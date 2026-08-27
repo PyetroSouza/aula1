@@ -1,5 +1,5 @@
 /*
-fun main(){
+fun 27-08.main(){
     print("Hello World")
 }
 */
@@ -120,7 +120,7 @@ fun main() {
         println("Salve $nome!")
     }
     mandaSalve("joao")
-    //fun main(){
+    //fun 27-08.main(){
     //mandaSalve("joao")
     // }
     fun mensagemParabens(nome: String, idade: Int) {
@@ -257,7 +257,115 @@ fun main() {
     println(frutas.first()) // Banana
     println(frutas.last()) // Laranja
     println(frutas.contains("Maçã")) //true
+
+//24/08
+    //MutableList
+    // Funciona como a lista comum
+    // Permite alteração
+    // Tamanho dinâmico
+    var carros = mutableListOf("Corsa", "Celta")
+    println(carros.size)
+    println(carros.last())
+    println(carros.add("Fusca"))
+    println(carros.last())
+
+    println("*****************\nSet\n**********************")
+    /*
+    Set comum (imutável):
+       ● Não permite repetição (ignora repetidos automaticamente)
+       ● Não garante a ordem de inserção (não ordenado)
+       ● Acesso de valor por método
+       ● Não permite a alteração
+     */
+
+    val cores = setOf("Azul", "Verde", "Azul")
+    println(cores)
+    //cores.add("Amarelo") não funciona
+    //cores.remove("Verde") não funciona
+
+    /*
+    MutableSet (mutável):
+    ● Funciona como o Set comum
+    ● Permite a alteração
+     */
+    val coloridos = mutableSetOf("Azul", "Verde", "Azul")
+    coloridos.add("Amarelo")
+    coloridos.add("Azul") //ignorado
+    coloridos.remove("Verde")
+    println(coloridos) //[Azul, Amarelo]
+
+    println("*****************\nMap\n**********************")
+    /*
+    Collections - Map
+    Map comum (imutável):
+    ● Trabalha com chave => valor
+    ● Não permite a alteração
+     */
+    val pessoas = mapOf(
+        "Joao" to 20,
+        "Maria" to 30,
+    )
+    println(pessoas["Joao"])
+    println(pessoas["Pedro"]) //Não funciona
+    //println(pessoas["Maria"] = 27)
+
+    //MutableMap (mutável)
+    // -Funciona como o Map comum
+    // - Permite a alteração
+    val produtos = mutableMapOf(
+        "pc" to "computador", //to é o ":" do JSON
+        "cl" to "celular"
+    )
+    println(produtos["pc"]) //computador
+    produtos["ms"] = "mouse"
+    produtos.remove("pc")
+    println(produtos)
+
+    println("*****************\nWhile\n**********************")
+    //Estrutura de repetição
+    //Estrtura básica
+    var i = 0 //serve como contador
+    while (i < 0) {
+        println(i)
+
+        i++
+    }
+    println("*****************\nIntervalo\n**********************")
+    //São operadores utilizados para gerar os "ranges" (intervalos)
+
+    1..5 //1 a 5
+    1 until 5 //1 a 4
+    5 downTo 1 //5 a 1
+    1..10 step 2 //1, 3, 5, 7, 9
+
+    println("*****************\nFor\n**********************")
+    //Estrtura de repetição, em Kotlin, o for funciona com ranges
+    for (i in 1..10) { //in: dentro desse intervalo de...
+        println(i)
+    }
+    //var frutas = listOf("Banana", "Maçã", "Maçã")
+    for (frutas in frutas) {
+        println(frutas)
+    }
+
+    for (indices in frutas.indices) {
+        println(frutas[indices])
+    } //imprime 0,1,2
+
+    for ((indice, frutas) in frutas.withIndex()) {
+        println("A $frutas está na posição $indice")
+    }
+
+    println("*****************\nWhen\n**********************")
+    //idade = 27
+    when (idade) {
+        in 0..12 -> println("Criança")
+        in 12..17 -> println("Adolescente")
+        in 18..59 -> println("Adulto")
+        else -> println("idoso")
+    }
 }
+
 
 
 
